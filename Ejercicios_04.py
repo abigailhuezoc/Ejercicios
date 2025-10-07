@@ -1,0 +1,5 @@
+nombre = input("Ingresa tu nombre")
+producto =  input("Ingresa el nombre del producto")
+precio = int(input("Ingresa precio del producto"))
+mensaje = (f"Hola, {nombre} tu {producto} cuesta {precio}")
+print(mensaje)
