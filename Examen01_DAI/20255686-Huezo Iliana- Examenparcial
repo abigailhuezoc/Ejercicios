@@ -20,9 +20,14 @@ class calculo_multa:
         self.codigo_id = codigo_id
 
 class prestamo_libro(calculo_multa):
-    def __init__(self, codigo_id: str, libro: str):
+    def __init__(self, codigo_id: str, lista_de_espera: int):
         super().__init__(codigo_id, 0)  
-        self.libro = libro
+        self.lista_de_espera = lista_de_espera
+
+class uso_sala_de_estudio(calculo_multa):
+    def __init__(self, codigo_id: str, lista_de_espera: int):
+        super().__init__(codigo_id, 0)  
+        self.lista_de_espera = lista_de_espera
 
 class promedio_multas:
     def calcular(self, multas: list[float]) -> float:
