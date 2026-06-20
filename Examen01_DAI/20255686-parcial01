@@ -1,0 +1,31 @@
+class registro_empleado:
+    def __init__(self, nombre_empleado: str, codigo_usuario: str):
+        self.nombre_empleado = nombre_empleado
+        self.codigo_usuario = codigo_usuario
+
+class registro_atencion:
+    def __init__(self, codigo_alumno: str, recursos: list, bibliotecario_responsable: registro_empleado):
+        self.codigo_alumno = codigo_alumno
+        self._recursos = recursos
+        self.bibliotecario_responsable = bibliotecario_responsable
+
+class recurso:
+    def __init__(self, cantidad_recursos: int):
+        if cantidad_recursos > 4:
+            raise ValueError("La cantidad de recursos debe ser no mayor a 4")
+        self._cantidad_recursos = cantidad_recursos
+
+class calculo_multa:
+    def __init__(self, codigo_id: str, penalizacion):
+        self.codigo_id = codigo_id
+
+class prestamo_libro(calculo_multa):
+    def __init__(self, codigo_id: str, libro: str):
+        super().__init__(codigo_id, 0)  
+        self.libro = libro
+
+class promedio_multas:
+    def calcular(self, multas: list[float]) -> float:
+        if not multas:
+            return 0.0
+        return sum(multas) / len(multas)
